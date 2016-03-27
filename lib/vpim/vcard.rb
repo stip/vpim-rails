@@ -759,7 +759,6 @@ module Vpim
     # ...). See the methods for the specific types of line for information
     # about supported types and their meaning.
     def value(name, type = nil)
-      v = nil
 
       fields = enum_by_name(name).find_all { |f| type == nil || f.type?(type) }
 

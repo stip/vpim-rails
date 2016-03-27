@@ -85,11 +85,11 @@ module Vpim
       def Field.value_str(value) # :nodoc:
         line = ''
         case value
+          when Time , DateTime
+            line << Vpim.encode_date_time(value)
+
           when Date
             line << Vpim.encode_date(value)
-
-          when Time #, DateTime
-            line << Vpim.encode_date_time(value)
 
           when Array
             line << value.map { |v| Field.value_str(v) }.join(';')

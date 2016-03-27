@@ -256,7 +256,7 @@ TODO
     #
     # cal must be String or IO, or implement #each by returning
     # each line in the input as those classes do.
-    def Icalendar.decode(cal, e = nil)
+    def Icalendar.decode(cal, ee = nil)
       entities = Vpim.expand(Vpim.decode(cal))
 
       # Since all iCalendars must have a begin/end, the top-level should
@@ -360,7 +360,7 @@ TODO
     # such as timezone definitions.
     def each(klass=nil, &block) # :yield: component
       unless block
-        return Enumerable::Enumerator.new(self, :each, klass)
+        return Enumerator.new(self, :each, klass)
       end
       components(klass, &block)
     end
